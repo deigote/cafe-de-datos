@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.DS_Store
+dist/
+preferencias.md
+publicacion.local.json
+archivo/
+fuentes/
+pedidos/
+cafes/
+.venv/

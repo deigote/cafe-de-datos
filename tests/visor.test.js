@@ -1,0 +1,10 @@
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const {models,filtered}=require('../web/app.js');
+const data={cafes:[{id:'a',nombre:'Árbol',origen:'Perú',proceso:'Lavado',descripcion:'',notas:''},{id:'b',nombre:'B',origen:'',proceso:'',descripcion:'',notas:''}],compras:[{id:'old',cafe_id:'a',fecha:'',fecha_registro:'2026-01-01',precio:'7.5'},{id:'new',cafe_id:'a',fecha:'2026-11-19',fecha_registro:'2026-11-19',precio:'8'},{id:'sample',cafe_id:'b',fecha:'',fecha_registro:'2026-11-01',precio:''}],valoraciones:[{id:'note',cafe_id:'a',compra_id:'old',fecha:'2026-02-01',puntuacion:'3.5',notas:'Cítrico, pero rico.'}]};
+const defaults={search:'',rating:'all',min:'',max:'',kind:'compra',from:'',to:'',sort:'rating'};
+test('nota histórica no se asigna a nueva compra',()=>{const [a]=models(data);assert.equal(a.latest.id,'new');assert.equal(a.review.compra_id,'old');assert.equal(a.rating,3.5);});
+test('desconocido no es precio cero ni puntuación cero',()=>{const items=models(data);assert.equal(items[1].price,null);assert.equal(items[1].rating,null);assert.deepEqual(filtered(items,{...defaults,max:'9'}).map(c=>c.id),['a']);assert.deepEqual(filtered(items,{...defaults,rating:'unrated'}).map(c=>c.id),['b']);});
+test('busca comentarios sin distinguir acentos',()=>assert.equal(filtered(models(data),{...defaults,search:'citrico'}).length,1));
+test('fechas de compra y valoración independientes, desconocidas excluidas',()=>{assert.equal(filtered(models(data),{...defaults,from:'2026-01-01',to:'2026-03-01'}).length,0);assert.equal(filtered(models(data),{...defaults,kind:'valoracion',from:'2026-01-01',to:'2026-03-01'}).length,1);});
+test('filtro de nota, límites inclusivos y orden',()=>{assert.equal(filtered(models(data),{...defaults,rating:'4'}).length,0);assert.equal(filtered(models(data),{...defaults,min:'8',max:'8'}).length,1);assert.deepEqual(filtered(models(data),{...defaults,sort:'cheap'}).map(c=>c.id),['a','b']);});

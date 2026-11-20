@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Un cuaderno de cafés, compras y notas de cata. Una colección para recordar y compartir.">
+  <title>Café de Datos</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="masthead"><a class="brand" href="./">◒ &nbsp; Café de Datos</a><span>UN CUADERNO COMPARTIDO</span></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow" id="author">MI COLECCIÓN</p><h1 id="title">Cafés que merece<br>la pena recordar.</h1><p id="description">Lo que compré, lo que probé y lo que repetiría.</p></div><div class="summary" id="summary" aria-label="Resumen de la colección"></div></section>
+    <form id="filters" class="filters" aria-label="Filtrar cafés">
+      <label for="search" class="search">Buscar en cafés y notas<input type="search" id="search" placeholder="Nombre, origen, chocolate…"></label>
+      <label for="rating">Puntuación<select id="rating"><option value="all">Todas las notas</option><option value="4">4 o más</option><option value="3.5">3,5 o más</option><option value="3">3 o más</option><option value="unrated">Sin valorar</option></select></label>
+      <label for="min-price">Precio mínimo<input type="number" id="min-price" min="0" step="0.25" placeholder="Sin mínimo"></label>
+      <label for="max-price">Precio máximo<input type="number" id="max-price" min="0" step="0.25" placeholder="Sin máximo"></label>
+      <label for="date-kind">Fecha de<select id="date-kind"><option value="compra">Compra</option><option value="valoracion">Valoración</option></select></label>
+      <label for="from">Desde<input type="date" id="from"></label><label for="to">Hasta<input type="date" id="to"></label>
+      <label for="sort">Ordenar<select id="sort"><option value="rating">Mejor puntuación</option><option value="recent">Última actividad</option><option value="cheap">Precio: menor primero</option><option value="expensive">Precio: mayor primero</option><option value="name">Nombre A–Z</option></select></label>
+      <button type="reset" class="reset">Limpiar filtros</button>
+    </form>
+    <div class="list-heading"><h2>El cuaderno</h2><p id="count" role="status" aria-live="polite">Cargando colección…</p></div>
+    <p class="hint">Las notas pertenecen a la bolsa probada. El precio es el último registrado por bolsa; las fechas desconocidas no se inventan.</p>
+    <p id="error" role="alert" hidden></p><section id="cards" class="cards" aria-label="Cafés"></section><p id="empty" hidden>No hay cafés con estos filtros. Prueba a ampliar la búsqueda.</p>
+  </main>
+  <footer><span>Hecho para probar, recordar y compartir.</span><span>Sin cuentas. Sin edición. Solo café.</span></footer>
+</body>
+</html>
