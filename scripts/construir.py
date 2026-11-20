@@ -23,7 +23,7 @@ def build(collection='deigote', output=None):
         shutil.copyfile(ROOT / 'web' / name, output / name)
     (output / 'datos.json').write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     (output / '.nojekyll').touch()
-    print(f'Web generada: {output} ({len(data["cafes"])} cafés, {len(data["compras"])} compras/muestras, {len(data["valoraciones"])} valoraciones)')
+    print(f'Web generada: {output} ({len(data["registros"])} registros)')
     return output
 
 if __name__ == '__main__':

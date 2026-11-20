@@ -1,2 +1,10 @@
-id,nombre,tienda,web,url,origen,proceso,descripcion,notas
-cafe-ejemplo,Café de ejemplo,Tienda de ejemplo,https://www.soycafetera.es/shop,,Origen de ejemplo,Lavado,Ejemplo ficticio para empezar una colección.,Sustituye estos datos por los tuyos.
+cafe_id,nombre,tienda,url,tipo,fecha_compra,precio,gramos,fecha_valoracion,puntuacion,notas_web,notas_usuario,detalles
+cafe-ejemplo,Café de ejemplo,Tienda de ejemplo,,compra,2026-01-10,8.50,250,2026-01-12,4,"2026-01-10 · Ficha ficticia
+Cata: Chocolate y caramelo
+Lavado · Variedad de ejemplo · Región de ejemplo
+Descripción comercial ficticia.
+No es un café real.",Dulce y equilibrado. Comentario ficticio.,"Sustituye estos datos por los tuyos.
+Datos ficticios.
+Pedido: pedido-ejemplo · Registro: 2026-01-10 · 1 bolsa(s) · Espresso · Medio · bolsa-ejemplo
+Versión valorada: bolsa-ejemplo
+Consumo: 2026-01-12"

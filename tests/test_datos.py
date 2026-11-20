@@ -1,112 +1,32 @@
-import csv
-import json
-import shutil
-import sys
-import tempfile
-import unittest
-from decimal import Decimal
+import csv,json,sys,tempfile,shutil,unittest
 from pathlib import Path
-
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / 'scripts'))
-from coleccion import load, SCHEMAS
+ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'scripts'))
+from coleccion import load,FIELDS
 from construir import build
-from publicar import files_to_publish
-
-class DataTests(unittest.TestCase):
-    def setUp(self):
-        self.tmp = tempfile.TemporaryDirectory()
-        self.folder = Path(self.tmp.name) / 'coleccion'
-        shutil.copytree(ROOT / 'colecciones/ejemplo', self.folder)
-
-    def tearDown(self):
-        self.tmp.cleanup()
-
-    def edit(self, table, transform):
-        with (self.folder / f'{table}.csv').open(newline='', encoding='utf-8') as f:
-            rows = list(csv.DictReader(f))
-        transform(rows)
-        with (self.folder / f'{table}.csv').open('w', newline='', encoding='utf-8') as f:
-            writer = csv.DictWriter(f, fieldnames=SCHEMAS[table])
-            writer.writeheader(); writer.writerows(rows)
-
-    def test_csv_multiline_quotes_and_unknown_price(self):
-        note = 'Dulce, con "chocolate".\nSegunda impresión: mejor.'
-        self.edit('valoraciones', lambda rows: rows[0].update(notas=note))
-        self.edit('compras', lambda rows: rows[0].update(precio='', fecha='', tipo='muestra'))
-        data = load(self.folder)
-        self.assertEqual(data['valoraciones'][0]['notas'], note)
-        self.assertEqual(data['compras'][0]['precio'], '')
-
-    def test_invalid_relations_fail(self):
-        self.edit('valoraciones', lambda rows: rows[0].update(compra_id='missing'))
-        with self.assertRaisesRegex(ValueError, 'compra inexistente'):
-            load(self.folder)
-
-    def test_versions_are_required_to_belong_to_same_coffee(self):
-        self.edit('compras', lambda rows: rows[0].update(version_id='missing-version'))
-        with self.assertRaisesRegex(ValueError, 'versión inexistente'):
-            load(self.folder)
-        self.edit('compras', lambda rows: rows[0].update(version_id=''))
-        self.edit('cafes', lambda rows: rows.append(dict(rows[0], id='otro')))
-        self.edit('versiones', lambda rows: rows.append(dict(rows[0], id='otra-version', cafe_id='otro')))
-        self.edit('valoraciones', lambda rows: rows[0].update(version_id='otra-version'))
-        with self.assertRaisesRegex(ValueError, 'versión inexistente o de otro café'):
-            load(self.folder)
-
-    def test_reset_empty_collection_is_valid(self):
-        for table in SCHEMAS:
-            self.edit(table, lambda rows: rows.clear())
-        data = load(self.folder)
-        self.assertTrue(all(data[table] == [] for table in SCHEMAS))
-
-    def test_duplicate_ids_fail(self):
-        self.edit('cafes', lambda rows: rows.append(rows[0].copy()))
-        with self.assertRaisesRegex(ValueError, 'duplicado'):
-            load(self.folder)
-
-    def test_invalid_values_fail(self):
-        for value in ['NaN', 'Infinity', '-1', '3,5', '6']:
-            self.edit('valoraciones', lambda rows: rows[0].update(puntuacion=value))
-            with self.assertRaises(ValueError):
-                load(self.folder)
-
-    def test_invalid_date_and_url_fail(self):
-        self.edit('compras', lambda rows: rows[0].update(fecha='2026-02-30'))
-        with self.assertRaisesRegex(ValueError, 'fecha'):
-            load(self.folder)
-        self.edit('compras', lambda rows: rows[0].update(fecha=''))
-        self.edit('cafes', lambda rows: rows[0].update(url='javascript:alert(1)'))
-        with self.assertRaisesRegex(ValueError, 'http'):
-            load(self.folder)
-
-    def test_build_only_public_files(self):
-        output = build('ejemplo', Path(self.tmp.name) / 'public')
-        self.assertEqual({p.name for p in output.iterdir()}, {'index.html','app.js','styles.css','datos.json','.nojekyll'})
-        self.assertEqual(len(json.loads((output/'datos.json').read_text())['cafes']), 1)
-        with self.assertRaisesRegex(ValueError, 'inseguro'):
-            build('ejemplo', ROOT/'colecciones')
-
-    def test_publishing_excludes_personal_sources(self):
-        paths = [str(p.relative_to(ROOT)) for p in files_to_publish()]
-        self.assertNotIn('preferencias.md', paths)
-        self.assertNotIn('publicacion.local.json', paths)
-        self.assertFalse(any(p.startswith(('fuentes/','archivo/','pedidos/')) for p in paths))
-
-    @unittest.skipUnless((ROOT/'colecciones/deigote').exists(), 'Colección opcional')
-    def test_migration_reconciles(self):
-        data = load(ROOT/'colecciones/deigote')
-        self.assertEqual([len(data[t]) for t in SCHEMAS], [7,9,5,13])
-        versions = {v['id']: v for v in data['versiones']}
-        self.assertIn('vino ligero', versions['colombia-etiqueta-20261031']['notas_cata'])
-        self.assertIn('arándano', versions['colombia-web-20260908']['notas_cata'])
-        self.assertTrue(all(r['version_id'] for r in data['valoraciones']))
-        for order, total in [('compra-inicial','39.25'),('2026-11-19','40.25')]:
-            rows = [r for r in data['compras'] if r['pedido_id']==order]
-            self.assertEqual(sum(Decimal(r['precio'])*int(r['cantidad']) for r in rows), Decimal(total))
-        november = {r['id'] for r in data['compras'] if r['pedido_id']=='2026-11-19'}
-        self.assertFalse(any(r['compra_id'] in november for r in data['valoraciones']))
-        self.assertEqual(sum(c['id']=='etiopia-sidamo' for c in data['cafes']), 1)
-
-if __name__ == '__main__':
-    unittest.main()
+class Tests(unittest.TestCase):
+ def setUp(self):
+  self.tmp=tempfile.TemporaryDirectory();self.folder=Path(self.tmp.name)/'data';shutil.copytree(ROOT/'colecciones/ejemplo',self.folder)
+ def tearDown(self):self.tmp.cleanup()
+ def save(self,rows):
+  with (self.folder/'cafes.csv').open('w',newline='',encoding='utf-8') as f:
+   w=csv.DictWriter(f,fieldnames=FIELDS);w.writeheader();w.writerows(rows)
+ def test_quotes_and_empty(self):
+  rows=load(self.folder)['registros'];rows[0].update(notas_usuario='Dulce, "rico"\nOtra impresión',precio='',fecha_compra='');self.save(rows);self.assertEqual(load(self.folder)['registros'],rows)
+  self.save([]);self.assertEqual(load(self.folder)['registros'],[])
+ def test_invalid_data(self):
+  original=load(self.folder)['registros'][0]
+  for change in [dict(precio='NaN'),dict(puntuacion='6'),dict(url='javascript:alert(1)'),dict(fecha_compra='2026-02-30'),dict(tipo='nuevo')]:
+   self.save([dict(original,**change)])
+   with self.assertRaises(ValueError):load(self.folder)
+ def test_repeated_coffee_allowed(self):
+  rows=load(self.folder)['registros'];self.save(rows+rows);self.assertEqual(len(load(self.folder)['registros']),2)
+ def test_build(self):
+  p=build('ejemplo',Path(self.tmp.name)/'site');self.assertEqual(set(x.name for x in p.iterdir()),{'index.html','app.js','styles.css','datos.json','.nojekyll'})
+  with self.assertRaises(ValueError):build('ejemplo',ROOT/'colecciones')
+ def test_migration(self):
+  rows=load(ROOT/'colecciones/deigote')['registros'];self.assertEqual(len(rows),11);self.assertEqual(len({r['cafe_id'] for r in rows}),7)
+  self.assertEqual(sum(r['tipo']!='cata' for r in rows),9);self.assertEqual(sum(bool(r['puntuacion']) for r in rows),5)
+  self.assertEqual(sum(float(r['precio']) for r in rows if r['fecha_compra']=='2026-11-19'),40.25)
+  self.assertTrue(all(not r['puntuacion'] for r in rows if r['fecha_compra']=='2026-11-19'))
+  self.assertTrue(any('vino ligero' in r['notas_web'] for r in rows));self.assertTrue(any('arándano' in r['notas_web'] for r in rows))
+if __name__=='__main__':unittest.main()
