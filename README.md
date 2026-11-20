@@ -6,9 +6,9 @@ Un cuaderno sencillo para recordar cafés y elegir mejor el próximo pedido: not
 
 ## Cómo usarlo
 
-Copia este repositorio, abre tu agente de código y dile:
+Pásale la URL de este repositorio, abre tu agente de código y dile:
 
-> Lee AGENTS.md y ayúdame a configurar mi colección de cafés.
+> Lee https://github.com/deigote/cafe-de-datos, tiene un AGENTS.md. Clónalo y ayúdame a configurar mi colección de cafés.
 
 El agente te preguntará por tus gustos, tiendas y preferencias de compra. Después puedes pedirle cosas como:
 
