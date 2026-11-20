@@ -43,6 +43,23 @@ class DataTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'compra inexistente'):
             load(self.folder)
 
+    def test_versions_are_required_to_belong_to_same_coffee(self):
+        self.edit('compras', lambda rows: rows[0].update(version_id='missing-version'))
+        with self.assertRaisesRegex(ValueError, 'versión inexistente'):
+            load(self.folder)
+        self.edit('compras', lambda rows: rows[0].update(version_id=''))
+        self.edit('cafes', lambda rows: rows.append(dict(rows[0], id='otro')))
+        self.edit('versiones', lambda rows: rows.append(dict(rows[0], id='otra-version', cafe_id='otro')))
+        self.edit('valoraciones', lambda rows: rows[0].update(version_id='otra-version'))
+        with self.assertRaisesRegex(ValueError, 'versión inexistente o de otro café'):
+            load(self.folder)
+
+    def test_reset_empty_collection_is_valid(self):
+        for table in SCHEMAS:
+            self.edit(table, lambda rows: rows.clear())
+        data = load(self.folder)
+        self.assertTrue(all(data[table] == [] for table in SCHEMAS))
+
     def test_duplicate_ids_fail(self):
         self.edit('cafes', lambda rows: rows.append(rows[0].copy()))
         with self.assertRaisesRegex(ValueError, 'duplicado'):
@@ -79,7 +96,11 @@ class DataTests(unittest.TestCase):
     @unittest.skipUnless((ROOT/'colecciones/deigote').exists(), 'Colección opcional')
     def test_migration_reconciles(self):
         data = load(ROOT/'colecciones/deigote')
-        self.assertEqual([len(data[t]) for t in SCHEMAS], [7,9,5])
+        self.assertEqual([len(data[t]) for t in SCHEMAS], [7,9,5,13])
+        versions = {v['id']: v for v in data['versiones']}
+        self.assertIn('vino ligero', versions['colombia-etiqueta-20261031']['notas_cata'])
+        self.assertIn('arándano', versions['colombia-web-20260908']['notas_cata'])
+        self.assertTrue(all(r['version_id'] for r in data['valoraciones']))
         for order, total in [('compra-inicial','39.25'),('2026-11-19','40.25')]:
             rows = [r for r in data['compras'] if r['pedido_id']==order]
             self.assertEqual(sum(Decimal(r['precio'])*int(r['cantidad']) for r in rows), Decimal(total))

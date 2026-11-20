@@ -9,8 +9,9 @@ from urllib.parse import urlparse
 
 SCHEMAS = {
     'cafes': ['id', 'nombre', 'tienda', 'web', 'url', 'origen', 'proceso', 'descripcion', 'notas'],
-    'compras': ['id', 'cafe_id', 'pedido_id', 'fecha', 'fecha_registro', 'tipo', 'precio', 'moneda', 'cantidad', 'gramos', 'molienda', 'tueste', 'version', 'notas'],
-    'valoraciones': ['id', 'cafe_id', 'compra_id', 'fecha', 'fecha_consumo', 'puntuacion', 'version', 'notas'],
+    'compras': ['id', 'cafe_id', 'pedido_id', 'fecha', 'fecha_registro', 'tipo', 'precio', 'moneda', 'cantidad', 'gramos', 'molienda', 'tueste', 'version', 'notas', 'version_id'],
+    'valoraciones': ['id', 'cafe_id', 'compra_id', 'fecha', 'fecha_consumo', 'puntuacion', 'version', 'notas', 'version_id'],
+    'versiones': ['id', 'cafe_id', 'fecha', 'fuente', 'url', 'notas_cata', 'proceso', 'variedades', 'region', 'productor', 'altitud', 'sca', 'descripcion', 'notas'],
 }
 
 def fail(context, message):
@@ -83,10 +84,21 @@ def load(directory):
         data[table] = rows
     cafes = {r['id'] for r in data['cafes']}
     compras = {r['id']: r for r in data['compras']}
-    for table in ('compras', 'valoraciones'):
+    versiones = {r['id']: r for r in data['versiones']}
+    for table in ('compras', 'valoraciones', 'versiones'):
         for row in data[table]:
             if row['cafe_id'] not in cafes:
                 fail(row['id'], 'cafe_id inexistente')
+    for row in data['versiones']:
+        if not row['fecha'] or not row['fuente'].strip():
+            fail(row['id'], 'versión requiere fecha de consulta/registro y fuente')
+        number(row['sca'], row['id'], Decimal('0'), Decimal('100'))
+    for table in ('compras', 'valoraciones'):
+        for row in data[table]:
+            if row['version_id']:
+                version = versiones.get(row['version_id'])
+                if not version or version['cafe_id'] != row['cafe_id']:
+                    fail(row['id'], 'versión inexistente o de otro café')
     for row in data['valoraciones']:
         if row['compra_id']:
             compra = compras.get(row['compra_id'])

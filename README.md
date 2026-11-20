@@ -21,7 +21,7 @@ Permite buscar en nombres y comentarios, filtrar por puntuación, precios e inte
 
 1. Copia `colecciones/ejemplo/` como `colecciones/tu-nombre/`.
 2. Cambia titulo, autor y descripcion en `coleccion.json`.
-3. Vacía las filas de ejemplo de los tres CSV conservando las cabeceras.
+3. Vacía las filas de ejemplo de los cuatro CSV conservando las cabeceras.
 4. Copia `preferencias.example.md` a `preferencias.md` y escribe libremente tus tiendas, gustos, formato y presupuesto.
 5. Pide a tu agente que lea `AGENTS.md` y añada una compra o una valoración en tu colección.
 
@@ -29,17 +29,34 @@ Puedes eliminar las otras colecciones en tu copia. Todas las colecciones incluid
 
 ## Datos y relaciones
 
-Los tres CSV son la fuente de verdad, no exportaciones de Markdown. Edítalos con un agente, un editor o una biblioteca CSV. Comas, comillas y saltos de línea dentro de comentarios se admiten mediante el formato CSV estándar. Se valida su estructura antes de publicar. Usa números con punto decimal; fechas `AAAA-MM-DD`; vacío significa desconocido.
+Los cuatro CSV son la fuente de verdad, no exportaciones de Markdown. Edítalos con un agente, un editor o una biblioteca CSV. Comas, comillas y saltos de línea dentro de comentarios se admiten mediante el formato CSV estándar. Se valida su estructura antes de publicar. Usa números con punto decimal; fechas `AAAA-MM-DD`; vacío significa desconocido.
 
 | Archivo | Una fila representa | Campos principales |
 | --- | --- | --- |
 | cafes.csv | Un café comercial | id, nombre, tienda, web, url, origen, proceso, descripcion, notas |
-| compras.csv | Una línea de compra o muestra | id, cafe_id, pedido_id, fecha, fecha_registro, tipo, precio, moneda, cantidad, gramos, molienda, tueste, version, notas |
-| valoraciones.csv | Una valoración de una versión probada | id, cafe_id, compra_id, fecha, fecha_consumo, puntuacion, version, notas |
+| versiones.csv | Una ficha comercial fechada (web o etiqueta) | id, cafe_id, fecha, fuente, url, notas_cata, proceso, variedades, region, productor, altitud, sca, descripcion, notas |
+| compras.csv | Una línea de compra o muestra | id, cafe_id, pedido_id, fecha, fecha_registro, tipo, precio, moneda, cantidad, gramos, molienda, tueste, version, notas, version_id |
+| valoraciones.csv | Una valoración de una versión probada | id, cafe_id, compra_id, fecha, fecha_consumo, puntuacion, version, notas, version_id |
 
 `precio` es unitario; `cantidad` es número de bolsas. `tipo` es compra o muestra. Una muestra regalada puede tener precio vacío; no se inventa un valor comercial. Un cero explícito es distinto de un desconocido. `compra_id` puede quedar vacío cuando no se pueda relacionar con certeza la valoración con una compra; `cafe_id` y `version` conservan su contexto. La fecha de registro no reemplaza una fecha de compra desconocida. Un café repetido conserva su ID; cada nueva compra recibe otro ID y no hereda notas.
 
 Si registras más de una moneda, los filtros de precio comparan importes nominales; utiliza una moneda común para comparar precios. El catálogo es histórico: no acredita stock ni precios actuales.
+
+## Notas de cata que no desaparecen
+
+`versiones.csv` conserva información comercial por fecha y fuente aunque la tienda retire el café. Su cata está en `notas_cata`; tus impresiones siguen en `valoraciones.csv`. `version_id` vincula compras y valoraciones a esas fichas; vacío si desconocido. `version` es una etiqueta libre para la bolsa.
+
+La ficha web al comprar no demuestra que la bolsa recibida sea idéntica. Etiquetas y diferencias se conservan por separado. `fecha` es consulta o registro de etiqueta; lote/cosecha, si se publica, va en `notas`. SCA es numérico y distinto de tu puntuación.
+
+Reutiliza fichas idénticas; no hace falta una fila por consulta ni por cambio de precio. Si cambia el perfil, conserva otra versión. El resumen de `cafes.csv` es orientativo: para comparar catas históricas usa `versiones.csv`. La web muestra la cata comercial de la versión valorada y el historial en «Ficha e historial», y permite buscar en esas notas.
+
+## Tres peticiones para tu agente
+
+- «Haz un reset y entrevístame para configurar mis preferencias»: rehace preferencias o crea una colección vacía; conserva la anterior por defecto. No borra ni publica automáticamente.
+- «Prepara un pedido»: cruza gustos y catas probadas, consulta catálogo actual, guarda candidatos y prepara el carrito autorizado sin pagar.
+- «Puntúa este café con 3,5 y este comentario»: identifica bolsa/compra, conserva etiqueta y cata, añade valoración y valida.
+
+El procedimiento está en `AGENTS.md`. Reset es un flujo conversacional, no un botón web ni otro servicio. Una colección nueva puede estar vacía: conserva las cuatro cabeceras y un `coleccion.json` con título.
 
 ## Trabajo local y publicación
 

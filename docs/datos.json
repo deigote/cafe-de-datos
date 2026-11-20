@@ -93,7 +93,8 @@
       "molienda": "Espresso",
       "tueste": "Medio",
       "version": "compra-inicial",
-      "notas": "Compra documentada por captura del pedido inicial. Fecha real y lote desconocidos. Subtotal del pedido 39,25 €; envío 0 €."
+      "notas": "Compra documentada por captura del pedido inicial. Fecha real y lote desconocidos. Subtotal del pedido 39,25 €; envío 0 €.",
+      "version_id": "guatemala-etiqueta-20260910"
     },
     {
       "id": "inicial-etiopia-sidamo",
@@ -109,7 +110,8 @@
       "molienda": "Espresso",
       "tueste": "Medio",
       "version": "Shantawene, etiqueta-2026-11-19",
-      "notas": "Compra documentada por captura del pedido inicial. Fecha real y lote desconocidos. Subtotal del pedido 39,25 €; envío 0 €."
+      "notas": "Compra documentada por captura del pedido inicial. Fecha real y lote desconocidos. Subtotal del pedido 39,25 €; envío 0 €.",
+      "version_id": "sidamo-etiqueta-20261119"
     },
     {
       "id": "inicial-nicaragua-matagalpa",
@@ -125,7 +127,8 @@
       "molienda": "Espresso",
       "tueste": "Medio",
       "version": "compra-inicial",
-      "notas": "Compra documentada por captura del pedido inicial. Fecha real y lote desconocidos. Subtotal del pedido 39,25 €; envío 0 €."
+      "notas": "Compra documentada por captura del pedido inicial. Fecha real y lote desconocidos. Subtotal del pedido 39,25 €; envío 0 €.",
+      "version_id": ""
     },
     {
       "id": "inicial-colombia-las-garzas",
@@ -141,7 +144,8 @@
       "molienda": "Espresso",
       "tueste": "Medio",
       "version": "compra-inicial",
-      "notas": "Compra documentada por captura del pedido inicial. Fecha real y lote desconocidos. Subtotal del pedido 39,25 €; envío 0 €."
+      "notas": "Compra documentada por captura del pedido inicial. Fecha real y lote desconocidos. Subtotal del pedido 39,25 €; envío 0 €.",
+      "version_id": ""
     },
     {
       "id": "muestra-peru",
@@ -157,7 +161,8 @@
       "molienda": "Espresso",
       "tueste": "",
       "version": "muestra-2026-09-10",
-      "notas": "Regalada. Fecha de recepción, cantidad, tienda y pedido asociado desconocidos."
+      "notas": "Regalada. Fecha de recepción, cantidad, tienda y pedido asociado desconocidos.",
+      "version_id": "peru-etiqueta-20260910"
     },
     {
       "id": "noviembre-guatemala-blue",
@@ -173,7 +178,8 @@
       "molienda": "Espresso",
       "tueste": "Medio",
       "version": "compra-2026-11-19",
-      "notas": "Compra confirmada por el usuario. Lote y etiqueta de bolsa recibida pendientes; sin valoración de esta compra. Subtotal del pedido 40,25 €; envío final desconocido."
+      "notas": "Compra confirmada por el usuario. Lote y etiqueta de bolsa recibida pendientes; sin valoración de esta compra. Subtotal del pedido 40,25 €; envío final desconocido.",
+      "version_id": "guatemala-web-20261119"
     },
     {
       "id": "noviembre-etiopia-sidamo",
@@ -189,7 +195,8 @@
       "molienda": "Espresso",
       "tueste": "Medio",
       "version": "compra-2026-11-19",
-      "notas": "Compra confirmada por el usuario. Lote y etiqueta de bolsa recibida pendientes; sin valoración de esta compra. Subtotal del pedido 40,25 €; envío final desconocido."
+      "notas": "Compra confirmada por el usuario. Lote y etiqueta de bolsa recibida pendientes; sin valoración de esta compra. Subtotal del pedido 40,25 €; envío final desconocido.",
+      "version_id": "sidamo-web-20261119"
     },
     {
       "id": "noviembre-honduras-los-geranios",
@@ -205,7 +212,8 @@
       "molienda": "Espresso",
       "tueste": "Medio",
       "version": "compra-2026-11-19",
-      "notas": "Compra confirmada por el usuario. Lote y etiqueta de bolsa recibida pendientes; sin valoración de esta compra. Subtotal del pedido 40,25 €; envío final desconocido."
+      "notas": "Compra confirmada por el usuario. Lote y etiqueta de bolsa recibida pendientes; sin valoración de esta compra. Subtotal del pedido 40,25 €; envío final desconocido.",
+      "version_id": "honduras-web-20261119"
     },
     {
       "id": "noviembre-burundi-yeast-intenso",
@@ -221,7 +229,8 @@
       "molienda": "Espresso",
       "tueste": "Medio",
       "version": "compra-2026-11-19",
-      "notas": "Compra confirmada por el usuario. Lote y etiqueta de bolsa recibida pendientes; sin valoración de esta compra. Subtotal del pedido 40,25 €; envío final desconocido."
+      "notas": "Compra confirmada por el usuario. Lote y etiqueta de bolsa recibida pendientes; sin valoración de esta compra. Subtotal del pedido 40,25 €; envío final desconocido.",
+      "version_id": "burundi-web-20261119"
     }
   ],
   "valoraciones": [
@@ -233,7 +242,8 @@
       "fecha_consumo": "2026-09-08",
       "puntuacion": "4",
       "version": "compra-inicial",
-      "notas": "sin los típicos sabores raros que me encantan de un anaeróbico, pero muy rico"
+      "notas": "sin los típicos sabores raros que me encantan de un anaeróbico, pero muy rico",
+      "version_id": "guatemala-etiqueta-20260910"
     },
     {
       "id": "peru-20260910",
@@ -243,7 +253,8 @@
       "fecha_consumo": "2026-09-10",
       "puntuacion": "3",
       "version": "muestra-2026-09-10",
-      "notas": "un poco ácido y no me convenció demasiado"
+      "notas": "un poco ácido y no me convenció demasiado",
+      "version_id": "peru-etiqueta-20260910"
     },
     {
       "id": "nicaragua-20261031",
@@ -253,7 +264,8 @@
       "fecha_consumo": "",
       "puntuacion": "3.5",
       "version": "etiqueta-2026-10-31",
-      "notas": "Resumen del usuario: café súper clásico, pero bueno y que hace el trabajo perfectamente. Repetible si es económico para la parte barata y funcional del pedido; alrededor de 12 € no habría buena razón para repetir. Compra concreta de la bolsa no confirmada; precio histórico de referencia: 7 €/250 g."
+      "notas": "Resumen del usuario: café súper clásico, pero bueno y que hace el trabajo perfectamente. Repetible si es económico para la parte barata y funcional del pedido; alrededor de 12 € no habría buena razón para repetir. Compra concreta de la bolsa no confirmada; precio histórico de referencia: 7 €/250 g.",
+      "version_id": "nicaragua-etiqueta-20261031"
     },
     {
       "id": "colombia-20261031",
@@ -263,7 +275,8 @@
       "fecha_consumo": "",
       "puntuacion": "3.5",
       "version": "etiqueta-2026-10-31",
-      "notas": "Resumen del usuario: al principio demasiado avinado, aunque esos toques le gustan en los anaeróbicos; poco a poco le fue cogiendo más gusto y ahora lo está saboreando. Se podría repetir. Compra concreta de la bolsa no confirmada."
+      "notas": "Resumen del usuario: al principio demasiado avinado, aunque esos toques le gustan en los anaeróbicos; poco a poco le fue cogiendo más gusto y ahora lo está saboreando. Se podría repetir. Compra concreta de la bolsa no confirmada.",
+      "version_id": "colombia-etiqueta-20261031"
     },
     {
       "id": "sidamo-20261119",
@@ -273,7 +286,218 @@
       "fecha_consumo": "",
       "puntuacion": "3.5",
       "version": "Shantawene, etiqueta-2026-11-19",
-      "notas": "Parecido al último, corte clásico y rico, 3.5, repetible para la parte del pedido de cafés razonables de precio, pero si está muy subido no merece"
+      "notas": "Parecido al último, corte clásico y rico, 3.5, repetible para la parte del pedido de cafés razonables de precio, pero si está muy subido no merece",
+      "version_id": "sidamo-etiqueta-20261119"
+    }
+  ],
+  "versiones": [
+    {
+      "id": "guatemala-web-20260908",
+      "cafe_id": "guatemala-blue",
+      "fecha": "2026-09-08",
+      "fuente": "Web; ficha histórica conservada",
+      "url": "https://www.soycafetera.es/tienda/Guatemala-Blue-Ayarza-Anaerobic-p523165986",
+      "notas_cata": "Tropical, lima, kiwi, mango",
+      "proceso": "Natural anaeróbico",
+      "variedades": "Anacafe 14, Bourbon, Catuai, Pache",
+      "region": "Ayarza",
+      "productor": "Arnaldo López",
+      "altitud": "1600–2000 m",
+      "sca": "87",
+      "descripcion": "Procesado centralizado, selección de cerezas; fermentación anaeróbica de 120 horas, diez días de patio hasta 22 % y final mecánico hasta 11,5 %.",
+      "notas": "Densidad 412 sin unidad. Lote/cosecha no publicados. Consulta histórica mediante lector, posible caché; no prueba el perfil de la compra anterior."
+    },
+    {
+      "id": "guatemala-etiqueta-20260910",
+      "cafe_id": "guatemala-blue",
+      "fecha": "2026-09-10",
+      "fuente": "Etiqueta IMG_8233.HEIC",
+      "url": "",
+      "notas_cata": "Tropical, lima, kiwi, mango",
+      "proceso": "Natural anaeróbico",
+      "variedades": "Bourbon, Anacafe, Catuai, Pache",
+      "region": "Ayarza",
+      "productor": "Arnaldo López",
+      "altitud": "1600–2000 m",
+      "sca": "87",
+      "descripcion": "Datos de la bolsa del pedido inicial, asociación confirmada por el usuario.",
+      "notas": "La etiqueta no especifica Anacafe 14. Tueste 2026-08-26 confirmado por usuario; consumo preferente 8/27. Lote no visible."
+    },
+    {
+      "id": "guatemala-web-20261119",
+      "cafe_id": "guatemala-blue",
+      "fecha": "2026-11-19",
+      "fuente": "Web; consulta directa al preparar pedido",
+      "url": "https://www.soycafetera.es/shop/cafe-guatemala-blue-ayarza-anaerobic-98",
+      "notas_cata": "Tropical, lima, kiwi, mango",
+      "proceso": "Natural anaeróbico",
+      "variedades": "Anacafe 14, Bourbon, Catuai, Pache",
+      "region": "Ayarza",
+      "productor": "Arnaldo López",
+      "altitud": "1600–2000 m",
+      "sca": "87",
+      "descripcion": "Procesado centralizado, selección de cerezas; fermentación anaeróbica de 120 horas, diez días de patio hasta 22 % y final mecánico hasta 11,5 %.",
+      "notas": "Densidad 424 sin unidad; mismo perfil esencial, no demuestra mismo lote. Cosecha/lote y fecha de tueste no publicados. Se conserva como observación histórica ya existente."
+    },
+    {
+      "id": "sidamo-web-20260908",
+      "cafe_id": "etiopia-sidamo",
+      "fecha": "2026-09-08",
+      "fuente": "Web; ficha histórica conservada",
+      "url": "https://www.soycafetera.es/tienda/Etiop%C3%ADa-sidamo-GR2-Ato-Tona-p250651535",
+      "notas_cata": "Acidez cítrica, floral, naranja y darjeeling",
+      "proceso": "Lavado",
+      "variedades": "Heriloom",
+      "region": "Sidamo",
+      "productor": "Varias fincas regionales",
+      "altitud": "1800–2200 (unidad no indicada)",
+      "sca": "84",
+      "descripcion": "Selección de cerezas, despulpado, fermentación 24–36 horas, lavado y secado en camas africanas durante 10–15 días.",
+      "notas": "Densidad 420 sin unidad. Referencia Ato Tona. Lote/cosecha no publicados; consulta histórica con posible caché."
+    },
+    {
+      "id": "sidamo-etiqueta-20261119",
+      "cafe_id": "etiopia-sidamo",
+      "fecha": "2026-11-19",
+      "fuente": "Etiqueta 2026-11-19-etiopia-sidamo-shantawene.jpg",
+      "url": "",
+      "notas_cata": "Acidez cítrica, toque a naranja, manzana, chocolate negro, floral",
+      "proceso": "Lavado",
+      "variedades": "HERILOOM",
+      "region": "Shantawene",
+      "productor": "",
+      "altitud": "2000 m",
+      "sca": "86",
+      "descripcion": "Bolsa del pedido inicial confirmada por el usuario; vendida bajo referencia Ato Tona, etiqueta Shantawene.",
+      "notas": "Tueste impreso 26/8 (año no confirmado), consumo preferente 8/27. Lote desconocido. No confundir con versión web SCA 84."
+    },
+    {
+      "id": "sidamo-web-20261119",
+      "cafe_id": "etiopia-sidamo",
+      "fecha": "2026-11-19",
+      "fuente": "Web; consulta directa al preparar pedido",
+      "url": "https://www.soycafetera.es/shop/cafe-etiopia-sidamo-gr2-ato-tona-97",
+      "notas_cata": "Acidez cítrica, floral, toque a naranja, darjeeling",
+      "proceso": "Lavado",
+      "variedades": "Heriloom",
+      "region": "Sidamo",
+      "productor": "Varias fincas regionales",
+      "altitud": "1800–2200 m",
+      "sca": "84",
+      "descripcion": "Selección de cerezas, despulpado, fermentación 24–36 horas, lavado y secado en camas africanas durante 10–15 días.",
+      "notas": "Densidad 456 sin unidad. Referencia Ato Tona; no garantiza Shantawene de la bolsa anterior. Lote y cosecha no publicados."
+    },
+    {
+      "id": "nicaragua-web-20260908",
+      "cafe_id": "nicaragua-matagalpa",
+      "fecha": "2026-09-08",
+      "fuente": "Web; ficha histórica conservada",
+      "url": "https://www.soycafetera.es/tienda/Nicaragua-Matagalpa-p756909572",
+      "notas_cata": "Cacao, higo seco, nueces; acidez equilibrada y cuerpo suave",
+      "proceso": "Lavado",
+      "variedades": "Catuai, Parainema, Catimor, Caturra",
+      "region": "Matagalpa",
+      "productor": "Cooperativa Agropecuaria Multisectorial Sagrada Familia R.L.; 85 pequeños agricultores",
+      "altitud": "1090–1200 m",
+      "sca": "83",
+      "descripcion": "Sagrada Familia SHG EP; cosecha en noviembre, clasificación por flotación, despulpado mecánico, lavado y seis días de secado en patios.",
+      "notas": "Lote desconocido; URL antigua retirada. No equivale automáticamente a Las Morenitas."
+    },
+    {
+      "id": "nicaragua-etiqueta-20261031",
+      "cafe_id": "nicaragua-matagalpa",
+      "fecha": "2026-10-31",
+      "fuente": "Etiqueta 2026-10-31-nicaragua-matagalpa.jpg",
+      "url": "",
+      "notas_cata": "Cacao, higo seco, azúcar moreno, nueces, cuerpo suave",
+      "proceso": "Lavado",
+      "variedades": "Catuai, Parainema, Catimor, Caturra",
+      "region": "Matagalpa (impreso MATAGAÑPA)",
+      "productor": "",
+      "altitud": "1090–1200 m",
+      "sca": "83",
+      "descripcion": "Etiqueta de la bolsa valorada; compra concreta no confirmada.",
+      "notas": "Tueste 12/8, año no confirmado; consumo preferente 8/27. Lote no visible."
+    },
+    {
+      "id": "colombia-web-20260908",
+      "cafe_id": "colombia-las-garzas",
+      "fecha": "2026-09-08",
+      "fuente": "Web; ficha histórica conservada",
+      "url": "https://www.soycafetera.es/tienda/Colombia-Las-Garzas-natural-p445701144",
+      "notas_cata": "Piña, arándano, violeta y cola",
+      "proceso": "Natural",
+      "variedades": "Castillo, Caturra, Colombia",
+      "region": "Gaitania, Planadas",
+      "productor": "Las Garzas Coop.; Azahar Coffee Company y agricultores asociados",
+      "altitud": "1700–2000 m",
+      "sca": "86",
+      "descripcion": "Fermentación de cerezas durante 38 horas y secado durante ocho días en camas africanas elevadas bajo dosel.",
+      "notas": "Lote desconocido; SCA y cata diferentes a la etiqueta posterior. Consulta histórica con posible caché."
+    },
+    {
+      "id": "colombia-etiqueta-20261031",
+      "cafe_id": "colombia-las-garzas",
+      "fecha": "2026-10-31",
+      "fuente": "Etiqueta 2026-10-31-colombia-las-garzas-natural.jpg",
+      "url": "",
+      "notas_cata": "Piña a la plancha, lima, violeta, vino ligero",
+      "proceso": "Natural",
+      "variedades": "Colombia, Castillo, Caturra",
+      "region": "Gaitan, Planadas",
+      "productor": "",
+      "altitud": "1700–2000 m",
+      "sca": "87",
+      "descripcion": "Etiqueta de la bolsa valorada; compra concreta no confirmada.",
+      "notas": "Tueste 25/8, año no confirmado; consumo preferente 8/27. No afirma proceso anaeróbico. Lote no visible."
+    },
+    {
+      "id": "peru-etiqueta-20260910",
+      "cafe_id": "peru-monte-verde",
+      "fecha": "2026-09-10",
+      "fuente": "Etiqueta IMG_8234.HEIC",
+      "url": "",
+      "notas_cata": "Suave, equilibrado, melón, chocolate con leche",
+      "proceso": "Lavado",
+      "variedades": "Bourbon, Typica, Arusha",
+      "region": "Amazonas, Rdez. Mendoza",
+      "productor": "",
+      "altitud": "1400–1800 m",
+      "sca": "83.5",
+      "descripcion": "Etiqueta de muestra regalada y valorada.",
+      "notas": "Tienda y lote no confirmados; consumo preferente 1/27. Tueste parcialmente visible: 19; no se registra fecha completa."
+    },
+    {
+      "id": "honduras-web-20261119",
+      "cafe_id": "honduras-los-geranios",
+      "fecha": "2026-11-19",
+      "fuente": "Web; consulta directa al preparar pedido",
+      "url": "https://www.soycafetera.es/shop/cafe-honduras-los-geranios-101",
+      "notas_cata": "Chocolate con leche, galleta, suave acidez",
+      "proceso": "Lavado",
+      "variedades": "Catuaí, Parainema (publicado parinema), IHcafe-90",
+      "region": "Siguatepeque",
+      "productor": "COHORSIL",
+      "altitud": "1200 m; descripción regional alrededor de 1100 m",
+      "sca": "83.5",
+      "descripcion": "Pequeños agricultores de COHORSIL en Comayagua y Montecillos; recolección manual, despulpado, fermentación, lavado y secado en patios hasta aproximadamente 12,5 % de humedad.",
+      "notas": "Densidad 428 sin unidad; lote, cosecha y tueste no publicados."
+    },
+    {
+      "id": "burundi-web-20261119",
+      "cafe_id": "burundi-yeast-intenso",
+      "fecha": "2026-11-19",
+      "fuente": "Web; consulta directa al preparar pedido",
+      "url": "https://www.soycafetera.es/shop/cafe-burundi-yeast-intenso-83",
+      "notas_cata": "Té negro, manzana, chocolate, caramelo, fruto rojo",
+      "proceso": "Natural con levaduras INTENSO",
+      "variedades": "Bourbon rojo",
+      "region": "Kayanza",
+      "productor": "Estación Butegana; 841 agricultores",
+      "altitud": "1600 m",
+      "sca": "85",
+      "descripcion": "Cerezas seleccionadas; fermentación en tanques cubiertos aproximadamente 12 horas con levaduras Lalcafe y secado en camas elevadas durante 10–14 días.",
+      "notas": "Ficha menciona Cima e INTENSO: ambigüedad conservada; no afirma anaeróbico. Densidad 436 sin unidad; lote, cosecha y tueste no publicados."
     }
   ],
   "coleccion": {

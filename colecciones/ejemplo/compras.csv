@@ -1,2 +1,2 @@
-id,cafe_id,pedido_id,fecha,fecha_registro,tipo,precio,moneda,cantidad,gramos,molienda,tueste,version,notas
-compra-ejemplo,cafe-ejemplo,pedido-ejemplo,2026-01-10,2026-01-10,compra,8.50,EUR,1,250,Espresso,Medio,bolsa-ejemplo,Datos ficticios.
+id,cafe_id,pedido_id,fecha,fecha_registro,tipo,precio,moneda,cantidad,gramos,molienda,tueste,version,notas,version_id
+compra-ejemplo,cafe-ejemplo,pedido-ejemplo,2026-01-10,2026-01-10,compra,8.50,EUR,1,250,Espresso,Medio,bolsa-ejemplo,Datos ficticios.,version-ejemplo
